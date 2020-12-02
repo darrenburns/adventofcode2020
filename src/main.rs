@@ -2,10 +2,19 @@ use std::error::Error;
 
 pub mod errors;
 mod one;
+mod two;
 
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let answer = one::find_three_entries_that_sum_to_2020();
-    println!("{:?}", answer?);
+    // let d1p1_answer = one::find_two_entries_that_sum_to_2020();
+    // println!("Day 1 Part 1: {:?}", d1p1_answer?);
+    // let d1p2_answer = one::find_three_entries_that_sum_to_2020();
+    // println!("Day 1 Part 2: {:?}", d1p2_answer?);
+    //
+    // let valid_password_count1 = two::get_valid_password_count_part_1();
+    // println!("Day 2 Part 1: {:?}", valid_password_count1);
+    let valid_password_count2 = two::get_valid_password_count_part_2();
+    println!("Day 2 Part 2: {:?}", valid_password_count2);
+
     Ok(())
 }
