@@ -1,12 +1,11 @@
 use std::error::Error;
 
 pub mod errors;
-mod one;
-mod two;
-mod three;
-mod four;
 mod five;
-
+mod four;
+mod one;
+mod three;
+mod two;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let d1p1_answer = one::find_two_entries_that_sum_to_2020();

@@ -1,7 +1,7 @@
+use std::collections::HashSet;
 use std::error::Error;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-use std::collections::HashSet;
 
 const INPUT: &'static str = "../inputs/5.1.txt";
 
@@ -17,7 +17,7 @@ pub fn seat_ids() -> Result<(i32, i32), Box<dyn Error>> {
             match char {
                 'F' => row_upper = mid,
                 'B' => row_lower = mid + 1,
-                _ => panic!("Unexpected character {} in boarding pass", char)
+                _ => panic!("Unexpected character {} in boarding pass", char),
             }
         }
 
@@ -28,14 +28,14 @@ pub fn seat_ids() -> Result<(i32, i32), Box<dyn Error>> {
             match char {
                 'L' => col_upper = mid,
                 'R' => col_lower = mid + 1,
-                _ => panic!("Unexpected character {} in boarding pass", char)
+                _ => panic!("Unexpected character {} in boarding pass", char),
             }
         }
 
         seat_ids.push(8 * row_lower + col_lower);
     }
 
-    let copy_seats: HashSet<&i32> =  seat_ids.iter().collect();
+    let copy_seats: HashSet<&i32> = seat_ids.iter().collect();
     let seat_range = *seat_ids.iter().min().unwrap()..*seat_ids.iter().max().unwrap();
     let mut my_seat = 0;
     for seat in seat_range {

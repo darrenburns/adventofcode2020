@@ -1,7 +1,7 @@
 use std::collections::HashSet;
-use std::iter::FromIterator;
-use std::fs;
 use std::error::Error;
+use std::fs;
+use std::iter::FromIterator;
 
 const PASSPORT_FIELDS: &[&str] = &["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid", "cid"];
 const BATCH_FILE: &'static str = "../inputs/4.1.txt";
@@ -14,7 +14,9 @@ pub fn get_num_valid_passports() -> Result<usize, Box<dyn Error>> {
     for doc in docs {
         let sanitised = doc.replace("\n", " ");
         let entries = sanitised.split(" ");
-        let fields: HashSet<&str> = entries.map(|e| e.split(":").nth(0).expect("Malformed batch file")).collect();
+        let fields: HashSet<&str> = entries
+            .map(|e| e.split(":").nth(0).expect("Malformed batch file"))
+            .collect();
         let diff: Vec<&str> = expected_fields.difference(&fields).copied().collect();
         if diff.len() == 0 || (diff.len() == 1 && *diff.get(0).unwrap() == "cid") {
             num_valid += 1;
@@ -22,4 +24,3 @@ pub fn get_num_valid_passports() -> Result<usize, Box<dyn Error>> {
     }
     Ok(num_valid)
 }
-

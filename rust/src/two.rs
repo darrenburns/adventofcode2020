@@ -9,7 +9,6 @@ pub(crate) fn get_valid_password_count_part_2() -> usize {
     get_valid_password_count(&has_valid_letter_positions)
 }
 
-
 fn get_valid_password_count(valid_pass_fn: &dyn Fn(&String) -> Option<bool>) -> usize {
     let file = File::open("../inputs/2.1.txt").unwrap();
     BufReader::new(file)
@@ -20,9 +19,7 @@ fn get_valid_password_count(valid_pass_fn: &dyn Fn(&String) -> Option<bool>) -> 
 
 fn has_valid_letter_counts(line: &String) -> Option<bool> {
     if let Some((letter, password, min, max)) = parse_line(line) {
-        let num_chars = password.chars()
-            .filter(|l| l == &letter)
-            .count();
+        let num_chars = password.chars().filter(|l| l == &letter).count();
         return Some(num_chars >= min && num_chars <= max);
     }
     Some(false)
@@ -32,8 +29,10 @@ fn has_valid_letter_positions(line: &String) -> Option<bool> {
     if let Some((letter, password, min, max)) = parse_line(line) {
         let min_char = password.chars().nth(min - 1)?;
         let max_char = password.chars().nth(max - 1)?;
-        return Some((min_char == letter && max_char != letter) ||
-            (min_char != letter && max_char == letter));
+        return Some(
+            (min_char == letter && max_char != letter)
+                || (min_char != letter && max_char == letter),
+        );
     }
     Some(false)
 }

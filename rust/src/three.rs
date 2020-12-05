@@ -19,7 +19,8 @@ pub(crate) fn num_trees_encountered(slope_right: usize, slope_down: usize) -> us
 }
 
 pub(crate) fn multi_slope_tree_product() -> usize {
-    vec![(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)].iter()
+    vec![(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
+        .iter()
         .map(|slope| num_trees_encountered(slope.0, slope.1))
         .fold(1, |acc, n| n * acc)
 }
