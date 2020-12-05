@@ -1,9 +1,7 @@
 use std::error::Error;
-use std::fs;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::collections::HashSet;
-use std::iter::FromIterator;
 
 const INPUT: &'static str = "../inputs/5.1.txt";
 
@@ -37,7 +35,7 @@ pub fn seat_ids() -> Result<(i32, i32), Box<dyn Error>> {
         seat_ids.push(8 * row_lower + col_lower);
     }
 
-    let mut copy_seats: HashSet<&i32> =  seat_ids.iter().collect();
+    let copy_seats: HashSet<&i32> =  seat_ids.iter().collect();
     let seat_range = *seat_ids.iter().min().unwrap()..*seat_ids.iter().max().unwrap();
     let mut my_seat = 0;
     for seat in seat_range {

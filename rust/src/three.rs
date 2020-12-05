@@ -1,4 +1,3 @@
-use std::error::Error;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
@@ -10,7 +9,7 @@ pub(crate) fn num_trees_encountered(slope_right: usize, slope_down: usize) -> us
         .lines()
         .map(|l| l.unwrap())
         .step_by(slope_down)
-        .scan(0, |col, mut row| {
+        .scan(0, |col, row| {
             let path_char = row.chars().cycle().nth(*col as usize);
             *col += slope_right;
             path_char
