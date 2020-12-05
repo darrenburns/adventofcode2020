@@ -3,6 +3,7 @@ use std::error::Error;
 pub mod errors;
 mod one;
 mod two;
+mod three;
 
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -13,8 +14,13 @@ fn main() -> Result<(), Box<dyn Error>> {
     //
     // let valid_password_count1 = two::get_valid_password_count_part_1();
     // println!("Day 2 Part 1: {:?}", valid_password_count1);
-    let valid_password_count2 = two::get_valid_password_count_part_2();
-    println!("Day 2 Part 2: {:?}", valid_password_count2);
+    // let valid_password_count2 = two::get_valid_password_count_part_2();
+    // println!("Day 2 Part 2: {:?}", valid_password_count2);
+    // let num_trees = three::num_trees_encountered(3, 1);
+    // println!("Day 3 Part 1: {}", num_trees);
+    //
+    // let part_two = three::multi_slope_tree_product();
+    // println!("Day 3 Part 2: {}", part_two);
 
     Ok(())
 }

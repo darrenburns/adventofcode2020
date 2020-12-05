@@ -7,7 +7,7 @@ use std::io::{BufRead, BufReader};
 use crate::errors::InvalidInput;
 
 fn get_expenses() -> Vec<i64> {
-    let file = File::open("inputs/1.1.txt").unwrap();
+    let file = File::open("../inputs/1.1.txt").unwrap();
     BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse::<i64>().unwrap_or_default())

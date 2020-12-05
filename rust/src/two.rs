@@ -12,7 +12,7 @@ pub(crate) fn get_valid_password_count_part_2() -> usize {
 
 
 fn get_valid_password_count(valid_pass_fn: &dyn Fn(&String) -> Option<bool>) -> usize {
-    let file = File::open("inputs/2.1.txt").unwrap();
+    let file = File::open("../inputs/2.1.txt").unwrap();
     BufReader::new(file)
         .lines()
         .filter(|l| valid_pass_fn(l.as_ref().unwrap()).unwrap())
