@@ -1,4 +1,3 @@
-use std::collections::HashSet;
 use std::error::Error;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
@@ -35,11 +34,10 @@ pub fn seat_ids() -> Result<(i32, i32), Box<dyn Error>> {
         seat_ids.push(8 * row_lower + col_lower);
     }
 
-    let copy_seats: HashSet<&i32> = seat_ids.iter().collect();
     let seat_range = *seat_ids.iter().min().unwrap()..*seat_ids.iter().max().unwrap();
     let mut my_seat = 0;
     for seat in seat_range {
-        if !copy_seats.contains(&seat) {
+        if !seat_ids.contains(&seat) {
             my_seat = seat;
         }
     }
