@@ -4,6 +4,7 @@ pub mod errors;
 mod one;
 mod two;
 mod three;
+mod four;
 
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -22,5 +23,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     // let part_two = three::multi_slope_tree_product();
     // println!("Day 3 Part 2: {}", part_two);
 
+    let num_valid_passports = four::get_num_valid_passports();
+    println!("Day 4, Part 1: {:?}", num_valid_passports?);
     Ok(())
 }
