@@ -45,9 +45,3 @@ pub fn seat_ids() -> Result<(i32, i32), Box<dyn Error>> {
     }
     Ok((*seat_ids.iter().max().unwrap(), my_seat))
 }
-
-/*
-
-|....|....|
-
- */
